@@ -1,0 +1,51 @@
+# Convert from EXE to Base64
+$EXE_Path = <Path of your EXE>
+$Base64_Code = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("$ServiceUI_Path")); 
+ 
+# Convert from DLL to Base64
+$DLL_Path = <Path of your DLL>
+$Base64_Code = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("$DLL_Path"));   
+ 
+# Convert from PS1 to Base64
+$PS1_Path = <Path of your PS1>
+$Base64_Code = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("$PS1_Path"));   
+
+
+Convert Base64 to original file
+
+See below our different Base64 conversions:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+# Convert from Base64 to EXE
+$EXE_Path = "$env:TEMP\<EXE name.exe>"
+$Base64_Code = "TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAA..."
+[byte[]]$Bytes = [convert]::FromBase64String($Base64_Code)
+[System.IO.File]::WriteAllBytes($EXE_Path,$Bytes)
+ 
+# Convert from Base64 to DLL
+$DLL_Path = "$env:TEMP\<DLL name.dll>"
+$Base64_Code = "TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAA..."
+[byte[]]$Bytes = [convert]::FromBase64String($Base64_Code)
+[System.IO.File]::WriteAllBytes($DLL_Path,$Bytes)
+ 
+# Convert from Base64 to PS1
+$PS1_Path = "$env:TEMP\<PS1 name.ps1>"
+$Base64_Code = "TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAA..."
+[byte[]]$Bytes = [convert]::FromBase64String($Base64_Code)
+[System.IO.File]::WriteAllBytes($PS1_Path,$Bytes)
